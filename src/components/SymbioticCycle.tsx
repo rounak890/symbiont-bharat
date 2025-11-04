@@ -33,7 +33,7 @@ export default function SymbioticCycle() {
 
   return (
     <div className="relative py-16">
-      <div className="text-center mb-12">
+      <div className="text-center mb-12 animate-slide-up">
         <h2 className="text-3xl md:text-4xl font-bold mb-4">
           The <span className="text-primary">Symbiotic Cycle</span>
         </h2>
@@ -44,8 +44,8 @@ export default function SymbioticCycle() {
 
       <div className="relative max-w-4xl mx-auto">
         {/* Central Circle */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-primary flex items-center justify-center z-10">
-          <div className="text-center">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 md:w-40 md:h-40 rounded-full bg-gradient-primary flex items-center justify-center z-10 animate-pulse-glow animate-rotate-slow shadow-glow">
+          <div className="text-center animate-pulse">
             <p className="text-sm md:text-base font-bold text-primary-foreground">AI-Powered</p>
             <p className="text-xs md:text-sm text-primary-foreground/80">Symbiosis</p>
           </div>
@@ -76,11 +76,16 @@ export default function SymbioticCycle() {
           {cycles.map((cycle, idx) => {
             const Icon = cycle.icon;
             return (
-              <div key={idx} className="flex flex-col items-center text-center">
-                <div className={`w-20 h-20 rounded-full ${cycle.bgColor} border-4 ${cycle.borderColor} flex items-center justify-center mb-4 hover:scale-110 transition-transform shadow-card`}>
-                  <Icon className={`w-10 h-10 ${cycle.color}`} />
+              <div 
+                key={idx} 
+                className="flex flex-col items-center text-center animate-slide-up group"
+                style={{ animationDelay: `${idx * 0.2}s` }}
+              >
+                <div className={`w-20 h-20 rounded-full ${cycle.bgColor} border-4 ${cycle.borderColor} flex items-center justify-center mb-4 hover:scale-125 hover:rotate-12 transition-all duration-500 shadow-card hover:shadow-glow animate-float cursor-pointer`}
+                  style={{ animationDelay: `${idx * 1}s` }}>
+                  <Icon className={`w-10 h-10 ${cycle.color} group-hover:scale-110 transition-transform`} />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{cycle.title}</h3>
+                <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors">{cycle.title}</h3>
                 <p className="text-sm text-muted-foreground">{cycle.description}</p>
                 
                 {/* Connection Details */}
@@ -101,16 +106,19 @@ export default function SymbioticCycle() {
 
         {/* AI Insights */}
         <div className="mt-12 grid gap-4 md:grid-cols-3 text-sm">
-          <div className="p-4 rounded-lg bg-primary/5 border border-primary/10">
-            <p className="font-medium text-primary mb-2">🌾 Crop Matching</p>
+          <div className="p-4 rounded-lg bg-primary/5 border border-primary/10 hover:bg-primary/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-slide-up cursor-pointer group">
+            <p className="font-medium text-primary mb-2 text-2xl group-hover:scale-110 transition-transform inline-block">🌾</p>
+            <p className="font-medium text-primary mb-2">Crop Matching</p>
             <p className="text-muted-foreground">AI suggests crops based on soil data and citizen dietary needs</p>
           </div>
-          <div className="p-4 rounded-lg bg-terracotta/5 border border-terracotta/10">
-            <p className="font-medium text-terracotta mb-2">🍽️ Demand Forecasting</p>
+          <div className="p-4 rounded-lg bg-terracotta/5 border border-terracotta/10 hover:bg-terracotta/10 hover:border-terracotta/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-slide-up cursor-pointer group" style={{ animationDelay: "0.1s" }}>
+            <p className="font-medium text-terracotta mb-2 text-2xl group-hover:scale-110 transition-transform inline-block">🍽️</p>
+            <p className="font-medium text-terracotta mb-2">Demand Forecasting</p>
             <p className="text-muted-foreground">Citizen preferences guide farmers on what to grow next season</p>
           </div>
-          <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/10">
-            <p className="font-medium text-secondary mb-2">♻️ Waste Optimization</p>
+          <div className="p-4 rounded-lg bg-secondary/5 border border-secondary/10 hover:bg-secondary/10 hover:border-secondary/30 transition-all duration-300 hover:scale-105 hover:-translate-y-1 animate-slide-up cursor-pointer group" style={{ animationDelay: "0.2s" }}>
+            <p className="font-medium text-secondary mb-2 text-2xl group-hover:scale-110 transition-transform inline-block">♻️</p>
+            <p className="font-medium text-secondary mb-2">Waste Optimization</p>
             <p className="text-muted-foreground">Municipal compost enriches soil with exact nutrients needed</p>
           </div>
         </div>
