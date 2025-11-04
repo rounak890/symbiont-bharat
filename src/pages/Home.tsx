@@ -3,6 +3,7 @@ import { Tractor, Heart, Recycle, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import heroImage from "@/assets/hero-sustainability.jpg";
+import SymbioticCycle from "@/components/SymbioticCycle";
 
 export default function Home() {
   const features = [
@@ -75,37 +76,44 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Features Section */}
+      {/* Symbiotic Cycle Section */}
       <section className="container py-16">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Three Pillars of <span className="text-primary">Symbiotic Growth</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Linking agriculture, health, and waste management for a sustainable future
-          </p>
-        </div>
+        <SymbioticCycle />
+      </section>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {features.map((feature, idx) => {
-            const Icon = feature.icon;
-            return (
-              <Card key={idx} className="shadow-card hover:shadow-glow transition-all duration-300 group">
-                <CardHeader>
-                  <div className={`w-12 h-12 rounded-full ${feature.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className={`w-6 h-6 ${feature.color}`} />
-                  </div>
-                  <CardTitle>{feature.title}</CardTitle>
-                  <CardDescription className="min-h-[60px]">{feature.description}</CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Button variant="card" className="w-full" asChild>
-                    <Link to={feature.link}>Open Dashboard</Link>
-                  </Button>
-                </CardContent>
-              </Card>
-            );
-          })}
+      {/* Features Section */}
+      <section className="container py-16 bg-muted/30">
+        <div className="container">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Three Pillars of <span className="text-primary">Symbiotic Growth</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Linking agriculture, health, and waste management for a sustainable future
+            </p>
+          </div>
+
+          <div className="grid gap-6 md:grid-cols-3">
+            {features.map((feature, idx) => {
+              const Icon = feature.icon;
+              return (
+                <Card key={idx} className="shadow-card hover:shadow-glow transition-all duration-300 group">
+                  <CardHeader>
+                    <div className={`w-12 h-12 rounded-full ${feature.bgColor} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                      <Icon className={`w-6 h-6 ${feature.color}`} />
+                    </div>
+                    <CardTitle>{feature.title}</CardTitle>
+                    <CardDescription className="min-h-[60px]">{feature.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent>
+                    <Button variant="card" className="w-full" asChild>
+                      <Link to={feature.link}>Open Dashboard</Link>
+                    </Button>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
         </div>
       </section>
 
